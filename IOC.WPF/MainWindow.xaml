@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IOC.WPF"
         mc:Ignorable="d"
-        Title="Fuel Consumption" Height="220" Width="300">
+        Title="Fuel Consumption" Height="205" Width="300"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -27,12 +29,13 @@
             </ItemsControl.ItemTemplate>
         </ListBox>
 
-        <Label Name="distanceLabel" Grid.Row="1" Grid.Column="0" Content="{Binding Path=Calculation.DistanceLabel}" HorizontalAlignment="Right"/>
+        <Label Name="distanceLabel" Grid.Row="1" Grid.Column="0" 
+               Content="{Binding Path=Calculation.DistanceLabel, FallbackValue='Distance:'}" HorizontalAlignment="Right"/>
         <TextBox Name="distanceTxt" Grid.Row="1" Grid.Column="1" Margin="3" 
                  PreviewTextInput="NumberValidationTextBox"
                  Text="{Binding Path=Distance, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-        <Label Name="fuelLabel" Grid.Row="2" Grid.Column="0" Content="{Binding Path=Calculation.FuelVolumeLabel}" HorizontalAlignment="Right"/>
+        <Label Name="fuelLabel" Grid.Row="2" Grid.Column="0" Content="{Binding Path=Calculation.FuelVolumeLabe, FallbackValue='Fuel:'}" HorizontalAlignment="Right"/>
         <TextBox Name="fuelTxt" Grid.Row="2" Grid.Column="1" Margin="3" 
                  PreviewTextInput="NumberValidationTextBox"
                  Text="{Binding Path=VolumeFuelConsumed, StringFormat=N2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>

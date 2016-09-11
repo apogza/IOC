@@ -7,7 +7,6 @@ namespace IOC.WPF
 {
     public class ContainerTypes
     {
-
         public ContainerTypes()
         {
             RegisterComponents();
