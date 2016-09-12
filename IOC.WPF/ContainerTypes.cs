@@ -40,7 +40,5 @@ namespace IOC.WPF
         {
             return ((App)Application.Current).Container.Resolve<T>();
         }
-
-
     }
 }
