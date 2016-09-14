@@ -6,14 +6,7 @@ namespace IOC.Calculations
     {
         public string GetVerdict(double fuelConsumption)
         {
-            if(fuelConsumption > 7.5)
-            {
-                return "Get a new car!";
-            }
-            else
-            {
-                return "Not bad!";
-            }
+            return (fuelConsumption > 7.5) ? "Get a new car!" : "Not bad!";
         }
     }
 }
