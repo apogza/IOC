@@ -66,7 +66,7 @@ namespace IOC
 
             Type resolvedType = _typeDict[type];
 
-            ConstructorInfo constructor = GetConstructorMaxParams(type);
+            ConstructorInfo constructor = GetConstructorMaxParams(resolvedType);
             ParameterInfo[] constructorParams = null;
 
             if (constructor != null)
@@ -81,9 +81,11 @@ namespace IOC
             {
                 //go through each parameter type and resolve it
                 object[] paramInstances = new object[constructorParams.Length];
-                for(int i = 0; i < constructorParams.Length; i++)
+                Type parameterType = null;
+                for (int i = 0; i < constructorParams.Length; i++)
                 {
-                    paramInstances[i] = Resolve(constructorParams[i].GetType());
+                    parameterType = constructorParams[i].ParameterType;
+                    paramInstances[i] = Resolve(parameterType.IsByRef ? parameterType.GetElementType() : parameterType);
                 }
 
                 return constructor.Invoke(paramInstances);
@@ -167,6 +169,13 @@ namespace IOC
 
             if (isSingleton)
                 _instanceDict.Add(typeof(I), null);
+        }
+
+        public void RegisterInstance<T>(object instance)
+        {
+            CheckTypeRegistration(typeof(T));
+            //only register the instance
+            _instanceDict.Add(typeof(T), instance);
         }
     }
 }

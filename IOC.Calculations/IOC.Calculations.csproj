@@ -41,10 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ICalculation.cs" />
+    <Compile Include="Interfaces\IKmVerdict.cs" />
     <Compile Include="Interfaces\ILitersPerHunderdKms.cs" />
     <Compile Include="Interfaces\IMilesPerGallon.cs" />
+    <Compile Include="Interfaces\IMilesVerdict.cs" />
+    <Compile Include="Interfaces\IVerdict.cs" />
+    <Compile Include="KmVerdict.cs" />
     <Compile Include="LitersPerHundredKms.cs" />
     <Compile Include="MilesPerGallon.cs" />
+    <Compile Include="MilesVerdict.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

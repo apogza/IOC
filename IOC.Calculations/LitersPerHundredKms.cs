@@ -1,14 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IOC.Calculations.Interfaces;
+﻿using IOC.Calculations.Interfaces;
 
 namespace IOC.Calculations
 {
     public class LitersPerHundredKms : ILitersPerHunderdKms
     {
+        private IKmVerdict _verdict;
+        private double _result;
+
+        public LitersPerHundredKms(IKmVerdict verdict)
+        {
+            _verdict = verdict;
+        }
+
+        public IVerdict Verdict
+        {
+            get { return _verdict; }
+        }
+
         public string CalculationLabel
         {
             get
@@ -43,7 +51,13 @@ namespace IOC.Calculations
 
         public double Calculate(double distance, double fuelVolumeConsumption)
         {
-            return fuelVolumeConsumption / distance * 100;
+            _result = fuelVolumeConsumption / distance * 100;
+            return _result;
+        }
+
+        public string GetVerdict()
+        {
+            return _verdict.GetVerdict(_result);
         }
     }
 }

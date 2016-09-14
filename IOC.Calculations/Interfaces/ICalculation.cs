@@ -10,6 +10,8 @@
         string FuelVolumeLabel { get; }
         string ResultLabel { get; }
 
+        IVerdict Verdict { get; }
+
         /// <summary>
         /// Each ICalculation should implement a method
         /// </summary>
@@ -17,5 +19,12 @@
         /// <param name="fuelVolumeConsumption">the fuel volume consumed</param>
         /// <returns></returns>
         double Calculate(double distance, double fuelVolumeConsumption);
+
+        /// <summary>
+        /// Get a verdict whether the result is a resonable consumption figure
+        /// </summary>
+        /// <returns>a message conveying yes/no</returns>
+        string GetVerdict();
+
     }
 }

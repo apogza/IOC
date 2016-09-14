@@ -73,7 +73,7 @@ namespace IOC.WPF
         private void Calculate()
         {
             double result = Calculation.Calculate(Distance, VolumeFuelConsumed);
-            DialogService.ShowMessageBox(string.Format("The consumption is {0:N2} {1}", result, Calculation.ResultLabel));
+            DialogService.ShowMessageBox(string.Format("The consumption is {0:N2} {1}. {2}", result, Calculation.ResultLabel, Calculation.GetVerdict()));
         }
     }
 }

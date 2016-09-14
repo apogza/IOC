@@ -27,8 +27,11 @@ namespace IOC.WPF
         {
             Container.RegisterType<MainWindowViewModel>();
             Container.RegisterType<ILitersPerHunderdKms, LitersPerHundredKms>(true);
+            Container.RegisterType<IKmVerdict, KmVerdict>(true);
+            Container.RegisterType<IMilesVerdict, MilesVerdict>(true);
             Container.RegisterType<IMilesPerGallon, MilesPerGallon>(true);
             Container.RegisterType<IDialogService, DialogService>(true);
+
         }
 
         /// <summary>
