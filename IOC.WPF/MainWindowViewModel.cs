@@ -58,10 +58,7 @@ namespace IOC.WPF
         /// </summary>
         private void InitCalculations()
         {
-            Calculations = new ObservableCollection<ICalculation>();
-            Calculations.Add(ContainerTypes.Resolve<ILitersPerHunderdKms>());
-            Calculations.Add(ContainerTypes.Resolve<IMilesPerGallon>());
-
+            Calculations = new ObservableCollection<ICalculation>(ContainerTypes.ResolveList<ICalculation>());
             //init the selected calculation
             Calculation = Calculations[0];
         }
